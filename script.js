@@ -1,12 +1,12 @@
 const output = document.getElementById('output');
 const popupMenu = document.getElementById('popup-menu');
 let pressTimer;
-const LONG_PRESS_TIME = 500; // ৫০০ মিলি-সেকেন্ড চেপে ধরে রাখলে পপআপ আসবে
+const LONG_PRESS_TIME = 500; // ৫০০ মিলি-সেকেন্ড
 
-// সাধারণ মাউস ক্লিকের লজিক
+// কীবোর্ডের বোতামের ইভেন্ট সেটআপ
 document.querySelectorAll('.key').forEach(button => {
     
-    // মাউস ডাউন (চেপে ধরা শুরু)
+    // মাউস ডাউন (লং-প্রেস ডিটেকশন শুরু)
     button.addEventListener('mousedown', (e) => {
         const char = button.getAttribute('data-char');
         const variants = button.getAttribute('data-variants');
@@ -27,7 +27,7 @@ document.querySelectorAll('.key').forEach(button => {
         // যদি লং-প্রেস না হয়ে থাকে, তবে সাধারণ অক্ষরটি ইনপুট হবে
         if (!button.hasAttribute('data-long-pressed')) {
             const char = button.getAttribute('data-char');
-            output.value += char;
+            insertText(char);
         } else {
             button.removeAttribute('data-long-pressed');
         }
@@ -40,7 +40,12 @@ document.querySelectorAll('.key').forEach(button => {
     });
 });
 
-// ভ্যারিয়েন্ট পপআপ দেখানোর ফাংশন
+// টেক্সট এরিয়াতে ইনপুট দেওয়ার ফাংশন
+function insertText(text) {
+    output.value += text;
+}
+
+// ছবির মতো পপআপ মেনু দেখানোর ফাংশন
 function showVariants(x, y, variants) {
     popupMenu.innerHTML = '';
     const variantArray = variants.split(',');
@@ -49,25 +54,29 @@ function showVariants(x, y, variants) {
         const btn = document.createElement('button');
         btn.innerText = v;
         btn.addEventListener('click', () => {
-            output.value += v;
+            insertText(v);
             popupMenu.classList.add('hidden');
         });
         popupMenu.appendChild(btn);
     });
 
     popupMenu.style.left = `${x}px`;
-    popupMenu.style.top = `${y - 60}px`; // মাউসের একটু উপরে দেখাবে
+    popupMenu.style.top = `${y - 65}px`; // মাউসের একটু উপরে দেখাবে
     popupMenu.classList.remove('hidden');
 }
 
-// স্ক্রিনের অন্য কোথাও ক্লিক করলে পপআপ বন্ধ হবে
+// স্ক্রিনের অন্য কোথাও ক্লিক করলে পপআপ বন্ধ করা
 document.addEventListener('click', (e) => {
     if (!e.target.classList.contains('key') && !popupMenu.contains(e.target)) {
         popupMenu.classList.add('hidden');
     }
 });
 
-// স্পেস, ব্যাকস্পেস এবং ক্লিয়ার বাটনের কাজ
-document.getElementById('space').addEventListener('click', () => output.value += ' ');
-document.getElementById('backspace').addEventListener('click', () => output.value = output.value.slice(0, -1));
-document.getElementById('clear').addEventListener('click', () => output.value = '');
+// কন্ট্রোল কি-সমূহের কাজ
+document.getElementById('space').addEventListener('click', () => insertText(' '));
+document.getElementById('backspace').addEventListener('click', () => {
+    output.value = output.value.slice(0, -1);
+});
+document.getElementById('clear').addEventListener('click', () => {
+    output.value = '';
+});
