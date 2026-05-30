@@ -3,13 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bangla On-Screen Keyboard</title>
+    <title>Bangla Advanced Keyboard</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <div class="container">
         <textarea id="output" placeholder="এখানে লিখুন..."></textarea>
+        
+        <div id="suggestion-bar" class="suggestion-bar">
+            <span class="placeholder-text">টাইপ করলে শব্দের সাজেশন এখানে ভেসে উঠবে...</span>
+        </div>
         
         <div id="keyboard" class="keyboard">
             <div class="row">
@@ -23,9 +27,31 @@
                 <button class="key num-key" data-char="৮">৮</button>
                 <button class="key num-key" data-char="৯">৯</button>
                 <button class="key num-key" data-char="০">০</button>
+                <button class="key math-key" data-char="+">+</button>
+                <button class="key math-key" data-char="-">-</button>
+                <button class="key math-key" data-char="*">×</button>
+                <button class="key math-key" data-char="/">÷</button>
+                <button class="key math-key" data-char="=">=</button>
+                <button class="key math-key" data-char="%">%</button>
             </div>
 
-            <div class="row punctuation-row">
+            <div class="row symbol-row">
+                <button class="key currency-key" data-char="৳">৳</button>
+                <button class="key currency-key" data-char="$">$</button>
+                <button class="key currency-key" data-char="€">€</button>
+                <button class="key currency-key" data-char="£">£</button>
+                <button class="key currency-key" data-char="₹">₹</button>
+                <button class="key bracket-key" data-char="(">(</button>
+                <button class="key bracket-key" data-char=")">)</button>
+                <button class="key bracket-key" data-char="{">{</button>
+                <button class="key bracket-key" data-char="} shadow">}</button>
+                <button class="key bracket-key" data-char="[">[</button>
+                <button class="key bracket-key" data-char="] shadow">]</button>
+                <button class="key bracket-key" data-char="<">&lt;</button>
+                <button class="key bracket-key" data-char=">">&gt;</button>
+            </div>
+
+            <div class="row">
                 <button class="key punct" data-char="।">।</button>
                 <button class="key punct" data-char=",">,</button>
                 <button class="key punct" data-char=";">;</button>
@@ -45,7 +71,7 @@
                 <button class="key vowel" data-char="ঈ" data-variants="ী">ঈ</button>
                 <button class="key vowel" data-char="উ" data-variants="ু">উ</button>
                 <button class="key vowel" data-char="ঊ" data-variants="ূ">ঊ</button>
-                <button class="key vowel" data-char="ঋ" data-variants="ೃ">ঋ</button>
+                <button class="key vowel" data-char="ঋ" data-variants="ৃ">ঋ</button>
                 <button class="key vowel" data-char="এ" data-variants="ে">এ</button>
                 <button class="key vowel" data-char="ঐ" data-variants="ৈ">ঐ</button>
                 <button class="key vowel" data-char="ও" data-variants="ো">ও</button>
@@ -58,7 +84,7 @@
                 <button class="key modifier" data-char="ী">ী</button>
                 <button class="key modifier" data-char="ু">ু</button>
                 <button class="key modifier" data-char="ূ">ূ</button>
-                <button class="key modifier" data-char="ೃ">ೃ</button>
+                <button class="key modifier" data-char="ৃ">ৃ</button>
                 <button class="key modifier" data-char="ে">ে</button>
                 <button class="key modifier" data-char="ৈ">ৈ</button>
                 <button class="key modifier" data-char="ো">ো</button>
@@ -69,12 +95,12 @@
             <div class="row">
                 <button class="key" data-char="ক" data-variants="ক,ক্ক,ক্ট,ক্ম,ক্য,ক্র,ক্ল,ক্ব,ক্ষ,ক্ষ্ম,ক্ষ্য">ক</button>
                 <button class="key" data-char="খ" data-variants="খ,খ্য,খ্র,খ্ব">খ</button>
-                <button class="key" data-char="গ" data-variants="গ,গ্ধ,গ্নি,গ্ম,গ্য,গ্র,গ্ল,গ্ব">গ</button>
+                <button class="key" data-char="গ" data-variants="গ,ग्ध,গ্নি,গ্ম,গ্য,গ্র,গ্ল,গ্ব">গ</button>
                 <button class="key" data-char="ঘ" data-variants="ঘ,ঘ্ন,ঘ্য,ঘ্র">ঘ</button>
                 <button class="key" data-char="ঙ" data-variants="ঙ,ঙ্ক,ঙ্ক্ষ,ঙ্খ,ঙ্গ,ঙ্ঘ,ঙ্ম,ঙ্য">ঙ</button>
                 <button class="key" data-char="চ" data-variants="চ,চ্চ,চ্ছ,চ্ছ্র,চ্যু">চ</button>
                 <button class="key" data-char="ছ" data-variants="ছ,ছ্য,ছ্র">ছ</button>
-                <button class="key" data-char="জ" data-variants="জ,জ্জ,জ্ঝ,জ্ঞ,জ্ব,জ্য,জ্র">জ</button>
+                <button class="key" data-char="জ" data-variants="জ,জ্জ,জ্ঝ,জ্ঞ,ज্ব,জ্য,জ্র">জ</button>
                 <button class="key" data-char="ঝ" data-variants="ঝ,ঝ্য,ঝ্র">ঝ</button>
                 <button class="key" data-char="ञ" data-variants="ञ,ঞ্চ,ঞ্ছ,ঞ্জ,ন্ঝ">ञ</button>
             </div>
@@ -102,7 +128,7 @@
                 <button class="key" data-char="র" data-variants="র,রা,রি,রী,রু,রূ,রে,্র,র্">র</button>
                 <button class="key" data-char="ল" data-variants="ল,ল্ক,ল্গ,ল্ট,ল্ড,ল্প,ল্ফ,ল্ল,ল্য,ল্ব,ল্ম">ল</button>
                 <button class="key" data-char="শ" data-variants="শ,শ্চ,শ্ন,শ্ল,শ্ব,শ্ম,শ্য,শ্র">শ</button>
-                <button class="key" data-char="ষ" data-variants="ष,ষ্ক,ষ্ট,ষ্ঠ,ষ্ণ,ষ্প,ষ্ফ,ষ্ম,ষ্য,ষ্ব">ষ</button>
+                <button class="key" data-char="ষ" data-variants="ष,ষ্ক,ষ্ট,ষ্ঠ,ষ্ণ,ষ্প,ষ্ফ,ষ্ম,ष্য,ষ্ব">ष</button>
             </div>
 
             <div class="row">
