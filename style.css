@@ -1,6 +1,6 @@
 body {
     font-family: 'Segoe UI', Arial, sans-serif;
-    background-color: #0f172a; /* আরও আকর্ষণীয় ডার্ক মোড */
+    background-color: #0f172a;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -32,7 +32,6 @@ textarea {
     box-sizing: border-box;
 }
 
-/* শব্দ সাজেশন বারের নতুন ও আধুনিক ডিজাইন */
 .suggestion-bar {
     background: #0f172a;
     border: 1px solid #334155;
@@ -54,7 +53,7 @@ textarea {
 }
 
 .suggested-word {
-    background: #10b981; /* সুন্দর উজ্জ্বল সবুজ রঙের শব্দ বাটন */
+    background: #10b981;
     color: white;
     border: none;
     padding: 6px 16px;
@@ -62,7 +61,6 @@ textarea {
     cursor: pointer;
     font-size: 17px;
     font-weight: bold;
-    transition: background 0.15s;
 }
 
 .suggested-word:hover {
@@ -71,7 +69,7 @@ textarea {
 
 .keyboard {
     background: #0f172a;
-    padding: 12px;
+    padding: 15px;
     border-radius: 12px;
     border: 1px solid #334155;
 }
@@ -79,7 +77,18 @@ textarea {
 .row {
     display: flex;
     justify-content: center;
+    align-items: center;
     margin-bottom: 5px;
+}
+
+/* চিহ্নের প্যানেলের বামের লেবেল টেক্সট */
+.row-label {
+    color: #94a3b8;
+    font-size: 14px;
+    font-weight: bold;
+    width: 110px;
+    text-align: right;
+    margin-right: 10px;
 }
 
 button {
@@ -103,13 +112,23 @@ button:hover {
 }
 
 /* কালার থিমিং */
-.num-key { background: #1e3a8a; border-color: #2563eb; } /* নীল */
-.math-key { background: #2e1065; border-color: #6b21a8; } /* গাঢ় বেগুনি */
-.currency-key { background: #064e3b; border-color: #059669; } /* কারেন্সি সবুজ */
-.bracket-key { background: #7c2d12; border-color: #ea580c; } /* ব্র্যাকেট গেরুয়া */
-.punct { background: #451a03; border-color: #b45309; } 
 .vowel { background: #854d0e; border-color: #ca8a04; } 
+.num-key { background: #1e3a8a; border-color: #2563eb; } 
+.math-key { background: #2e1065; border-color: #6b21a8; } 
+.currency-key { background: #064e3b; border-color: #059669; } 
+.bracket-key { background: #7c2d12; border-color: #ea580c; } 
+.punct { background: #451a03; border-color: #b45309; } 
 .modifier { background: #581c87; border-color: #a855f7; }
+
+/* লেআউট পরিবর্তনকারী স্পেশাল বাটনের ডিজাইন */
+.toggle-btn {
+    background: #ec4899 !important; /* উজ্জ্বল গোলাপি রঙ */
+    border-color: #db2777 !important;
+    font-weight: bold;
+}
+.toggle-btn:hover {
+    background: #db2777 !important;
+}
 
 .control-key {
     background: #475569;
@@ -117,10 +136,9 @@ button:hover {
     font-size: 16px;
     min-width: 100px;
 }
-#space { width: 250px; background: #2563eb; }
-#space:hover { background: #1d4ed8; }
+#space { width: 220px; background: #2563eb; }
 
-/* হোয়াটসঅ্যাপ ছবির মতো যুক্তবর্ণের পপআপ স্টাইল */
+/* যুক্তবর্ণ পপআপ */
 .popup-menu {
     position: absolute;
     background: #1e293b;
@@ -141,7 +159,6 @@ button:hover {
     padding: 10px 14px;
     font-size: 19px;
     border-radius: 8px;
-    min-width: 55px;
 }
 
 .popup-menu button:hover {
