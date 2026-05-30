@@ -1,10 +1,10 @@
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f0f2f5;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background-color: #f1f5f9;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
     margin: 0;
 }
 
@@ -12,8 +12,9 @@ body {
     text-align: center;
     background: white;
     padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    border-radius: 12px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.15);
+    max-width: 900px;
 }
 
 textarea {
@@ -21,84 +22,83 @@ textarea {
     height: 120px;
     font-size: 20px;
     padding: 10px;
-    border: 2px solid #ccc;
-    border-radius: 5px;
-    margin-bottom: 20px;
+    border: 2px solid #cbd5e1;
+    border-radius: 6px;
+    margin-bottom: 10px;
     resize: none;
     box-sizing: border-box;
 }
 
 .keyboard {
-    background: #e9ecef;
-    padding: 15px;
-    border-radius: 8px;
-    display: inline-block;
+    background: #e2e8f0;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #cbd5e1;
 }
 
 .row {
     display: flex;
     justify-content: center;
-    margin-bottom: 8px;
+    margin-bottom: 4px;
 }
 
 button {
-    font-size: 20px;
+    font-size: 18px;
     font-weight: bold;
-    padding: 12px 18px;
-    margin: 3px;
+    padding: 10px 14px;
+    margin: 1px;
     cursor: pointer;
-    border: 1px solid #adb5bd;
+    border: 1px solid #94a3b8;
     border-radius: 4px;
     background: white;
-    transition: background 0.2s;
+    color: #1e293b;
+    transition: all 0.1s ease;
     user-select: none;
 }
 
 button:hover {
-    background: #dee2e6;
+    background: #cbd5e1;
 }
 
-button:active {
-    background: #ced4da;
-}
-
-.control-key {
-    background: #6c757d;
-    color: white;
-    font-size: 16px;
-}
-
-.control-key:hover {
-    background: #5a6268;
-}
-
-#space {
-    width: 150px;
-}
-
-/* লং-প্রেস পপআপ মেনুর স্টাইল */
+/* ছবির মতো পপআপের UI ডিজাইন */
 .popup-menu {
     position: absolute;
-    background: white;
-    border: 2px solid #007bff;
-    border-radius: 6px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    background: #1f2937; /* গাঢ় ধূসর ব্যাকগ্রাউন্ড */
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
     display: flex;
-    padding: 5px;
+    padding: 8px;
     z-index: 1000;
+    gap: 4px;
 }
 
 .popup-menu button {
-    background: #007bff;
+    background: #374151; /* গাঢ় বাটন */
     color: white;
-    border: none;
-    margin: 2px;
+    border: 1px solid #4b5563;
+    padding: 10px 14px;
+    font-size: 18px;
 }
 
 .popup-menu button:hover {
-    background: #0056b3;
+    background: #4b5563;
 }
 
-.hidden {
-    display: none !important;
+/* আলাদা ক্যাটাগরির বোতামের স্টাইল */
+.vowel { background: #fffbeb; }
+.modifier { background: #f0fdf4; font-size: 16px; }
+.num-key { background: #eff6ff; }
+.math-key { background: #faf5ff; }
+.control-key, .control-key-icon {
+    background: #475569;
+    color: white;
+    font-size: 16px;
 }
+.control-key-icon { font-size: 18px; }
+
+#space { width: 180px; }
+
+.hidden { display: none !important; }
+
+/* পরীক্ষা করার জন্য 'দ' অক্ষরকে হাইলাইট করা হয়েছে */
+.highlight { border-color: #007bff; }
